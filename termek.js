@@ -1,17 +1,17 @@
-var receptekTomb = [];
+var webTomb = [];
 
 $(function () {
 
 
-        receptMegjelenit();
+        WeboldalMegjelenit();
 
 
 
     $.ajax(
             {url: "termekek.json", success: function (result) {
                     console.log(result);
-                    receptekTomb = result;                  
-                    receptMegjelenit();
+                    webTomb = result;                  
+                    WeboldalMegjelenit();
            
                 }});
 
@@ -20,16 +20,15 @@ $(function () {
 
 
 
-function receptMegjelenit() {
+function WeboldalMegjelenit() {
     $("article").empty();
-    for (var item in receptekTomb) {
-        var receptek = "<div><h3>" + receptekTomb[item]["nev"] + " </h3\n\
-                        <img src='" + receptekTomb[item]['kep'] + "' alt='" + receptekTomb[item]
-                        ['kep'].slice(6, receptekTomb[item]['kep'].length - 4) + "' >\n\
-                          <p>" + receptekTomb[item]["leiras"] + "</p>\n\
-                          <span>" + receptekTomb[item]["ar"] + "</span>\n\
+    for (var item in webTomb) {
+        var termek = "<div><h3>" + webTomb[item]["nev"] + " </h3\n\
+                          <p>" + webTomb[item]["leiras"] + "</p>\n\
+                          <img src='" + webTomb[item]['kep'] + "' alt='" + webTomb[item]['kep'].slice(7,webTomb[item]['kep'].length-4) + "' >\n\
+                          <span>" + webTomb[item]["ar"] + "</span>\n\
                            </div>";
-        $("article").append("<div id='" + receptekTomb[item]["nev"] + "'>" + receptek + "</div>");
+        $("article").append("<div id='" + webTomb[item]["nev"] + "'>" + termek + "</div>");
 
     }
 
